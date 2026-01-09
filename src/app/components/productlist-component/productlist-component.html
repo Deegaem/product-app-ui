@@ -1,1 +1,17 @@
-<p>productlist-component works!</p>
+<div class="row justify-content-between py-2">
+    <div class="col-auto">
+        <h2>Product List</h2>
+    </div>
+    <div class="col-auto">
+        <button type="button" class="btn btn-outline-primary" (click)="addProduct()">
+            Add Product
+        </button>
+    </div>
+</div>
+<div class="row">
+    @for (product of products(); track product.id ) {
+    <div class="col-md-6 col-lg-3">
+        <app-product-component [product]="product"></app-product-component>
+    </div>
+    }
+</div>
