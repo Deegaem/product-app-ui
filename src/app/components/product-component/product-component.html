@@ -1,13 +1,12 @@
-<div class="card border-0 shadow-sm bg-body-tertiary rounded mb-3">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ product().name }}</h5>
-            <p class="card-text">{{product().description}}.</p>
-            <h6 class="card-title">Price: {{product().price}}</h6>
-        </div>
-        <div class="card-body">
-            <a href="#" class="card-link" (click)="removeProduct(product())">Remove Product</a>
-        </div>
+<div class="card border-0 shadow-lg bg-body-tertiary rounded mb-3">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+        <h4 class="card-title">{{ product().name }}</h4>
+        <i class="bi bi-box2" style="font-size: 5rem; color: cornflowerblue;"></i>
+        <p class="card-text">{{product().description}}.</p>
+        <h6 class="card-title">Price: {{product().price}}</h6>
+    </div>
+    <div class="card-body">
+        <a href="#" class="card-link" (click)="removeProduct(product())">Remove Product</a>
     </div>
 </div>
