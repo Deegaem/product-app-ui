@@ -1,9 +1,8 @@
-import { Component, inject, input } from '@angular/core';
-import { ProductService } from '../../services/product-service';
+import { Component, input, output } from '@angular/core';
 import { Product } from '../../Models/product';
 
 @Component({
-  selector: 'app-product-component',
+  selector: 'app-product',
   imports: [],
   templateUrl: './product-component.html',
   styleUrl: './product-component.scss',
@@ -11,14 +10,14 @@ import { Product } from '../../Models/product';
 export class ProductComponent {
 
   product = input.required<Product>();
-
-  private productService = inject(ProductService);
+  removeProductEvent = output<Product>({});
 
   ngOnInit(): void {
 
   }
 
-  productDetails(id: number) {
+  removeProduct(product: Product) {
+    this.removeProductEvent.emit(product);
   }
 
 }

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { ProductComponent } from '../product-component/product-component';
 
 @Component({
-  selector: 'app-productlist-component',
+  selector: 'app-productlist',
   imports: [ProductComponent],
   templateUrl: './productlist-component.html',
   styleUrl: './productlist-component.scss',
@@ -13,19 +13,26 @@ import { ProductComponent } from '../product-component/product-component';
 export class ProductlistComponent {
 
   protected products = signal<Product[]>([]);
-  private getproductssubscription!: Subscription;
+  private getProductssubscription!: Subscription;
+  private removeProductssubscription!: Subscription;
   private productService = inject(ProductService);
 
   ngOnInit(): void {
-    this.getproductssubscription = this.productService.getProducts().subscribe((resp) => {
+    this.getProductssubscription = this.productService.getProducts().subscribe((resp) => {
       this.products.set(resp);
     });
   }
   addProduct() {
 
   }
+  public removeProduct(_product: any) {
+    this.removeProductssubscription = this.productService.removeProduct(_product.id).subscribe(() => {
+      this.products.set(this.products().filter((i) => i !== _product));
+    });
+  }
   ngOnDestroy(): void {
-    this.getproductssubscription.unsubscribe();
+    this.getProductssubscription.unsubscribe();
+    this.removeProductssubscription.unsubscribe();
   }
 
 

@@ -25,7 +25,7 @@ export class ProductService {
     return this.http.put<Product>(`http://localhost:8080/products`, product);
   }
 
-  public removeProduct(id: number): Observable<{}> {
+  public removeProduct(id: String): Observable<{}> {
     return this.http.delete(`http://localhost:8080/products/${id}`);
   }
 
