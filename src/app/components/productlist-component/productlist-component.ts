@@ -29,7 +29,7 @@ export class ProductlistComponent {
   }
   public removeProduct(_product: any) {
     this.productService.removeProduct(_product.product_id).subscribe(() => {
-      this.products.set(this.products().filter((i) => i !== _product));
+      this.products.set(this.products().filter((i) => i.product_id !== _product.product_id));
     });
   }
   ngOnDestroy(): void {
