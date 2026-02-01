@@ -10,23 +10,23 @@ export class ProductService {
   http = inject(HttpClient);
 
   public getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`http://localhost:8080/products`);
+    return this.http.get<Product[]>(`https://product-app.ch/products`);
   }
 
   public getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`http://localhost:8080/products/${id}`);
+    return this.http.get<Product>(`https://product-app.ch/products/${id}`);
   }
 
   public addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`http://localhost:8080/products`, product);
+    return this.http.post<Product>(`https://product-app.ch/products`, product);
   }
 
   public updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(`http://localhost:8080/products`, product);
+    return this.http.put<Product>(`https://product-app.ch/products`, product);
   }
 
   public removeProduct(id: String): Observable<{}> {
-    return this.http.delete(`http://localhost:8080/products/${id}`);
+    return this.http.delete(`https://product-app.ch/products/${id}`);
   }
 
 }
